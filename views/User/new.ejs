@@ -1,14 +1,21 @@
 
-<form action="/user/create" method="POST" class="form-signin">
 
-	<h2 class="form-signin-heading">Create an account</h2>
-	<input type="text" class="form-control" placeholder="first name" name="firstName">
-	<input type="text" class="form-control" placeholder="last name" name="lastName">
-	<input type="text" class="form-control" placeholder="email" name="email">
-	<input type="password" class="form-control" placeholder="password" name="password">
-	<input type="password" class="form-control" placeholder="password confirmation" name="password_confirmation">	
+<center>
+<div class="container">
+	<form action="/user/create" method="POST" role="form" class="form-horizontal">
 
-	<input type="submit" class="btn btn-lg btn-primary" value="Create" />
-	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		<h2 class="form-signin-heading">Create an account</h2>
 
-</form>
+		<input type="text" class="form-control" placeholder="first name" name="firstName">
+
+		<input type="text" class="form-control" placeholder="last name" name="lastName">
+		<input type="text" class="form-control" placeholder="email" name="email">
+		<input type="password" class="form-control" placeholder="password" name="password">
+		<input type="password" class="form-control" placeholder="password confirmation" name="password_confirmation">	
+
+		<input type="submit" class="btn btn-lg btn-primary" value="Create" />
+		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+
+	</form>
+</div>
+</center>
