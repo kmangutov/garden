@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New Sails App</title>
+    <title>garden</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -36,18 +36,21 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse">
       <div class="container">
         <a class="navbar-brand" href="/">garden</a>
       </div>
     </div>
 
-    <%- body %>
+
+    <div class="container">
+      <%- body %>
+    </div>
 
     <div class="container">
       <hr>
       <footer class="footer">
-        <div>Kirill Mangutov, Peter Chen</div>
+        <div>Footer</div>
       </footer>
     </div>
 
@@ -104,6 +107,7 @@
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
+    <script src="/js/vendor/jquery-2.1.1.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

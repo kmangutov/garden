@@ -1,0 +1,44 @@
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+<div class="container">
+	
+		<h2 class="form-signin-heading">Login</h2>
+
+
+	    <% if(flash && flash.err) { %>
+	      <div class="alert alert-success">
+	    <%= flash["err"] %>
+	      </div>
+	    <% } %>
+
+
+		<input type="text" id="loginEmail" class="form-control" placeholder="email" name="email">
+		<input type="password" id="loginPassword" class="form-control" placeholder="password" name="password">
+
+		<button id="loginButton" class="btn btn-lg btn-primary" value="Login" >Login</button>
+
+</div>
+
+
+<script type="text/javascript">
+    $("#loginButton").click(function(){
+        var email = $("#loginEmail").val();
+        var password = $("#loginPassword").val();
+        if (email && password) {
+            $.post(
+                '/main/authenticate',
+                {email: email, password:password},
+                function () {
+                    window.location = "/main/home";
+                }
+            ).fail(function(res){
+                alert("Error: " + res.getResponseHeader("error"));
+            });
+        } else {
+            alert("An email and password is required");
+        }
+    });
+</script>

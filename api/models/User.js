@@ -27,8 +27,11 @@ module.exports = {
 
     password: {
       type: 'string'
-    }
+    },
 
+    availableTimes: {
+      type: 'string'
+    }
   }
 };
 
