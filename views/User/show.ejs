@@ -6,7 +6,7 @@
 
 <div class="container">
 <h1><%= user.firstName %> <%= user.lastName %></h1>
-<h3><%= user.email %></h3>
+<h3><%= user.email %> <%= user.availableTimes %></h3>
 
 <%
 var days = ["Thursday", "Friday", "Saturday", "Sunday"];
@@ -14,7 +14,7 @@ var hours = ["9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm"];
 %>
 
 <form name="times">
-<table>
+<table class="table">
 
 	<tr>
 		<td>Time&nbsp;&nbsp;</td>
@@ -40,6 +40,16 @@ var hours = ["9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm"];
 <button id="submitButton" class="btn btn-lg btn-primary">Submit</button>
 
 <script type="text/javascript">
+
+	$(function() {
+		var availableTimes = "<%= user.availableTimes %>";
+		availableTimes.split(",").forEach(function(time){
+			//alert(JSON.stringify($("#" + time)));
+			var element = document.getElementById(time);
+			$(element).prop("checked", true);
+		})
+	})
+
     $("#submitButton").click(function(){
     	var form = document.times;
     	var totalString = "";
@@ -50,7 +60,6 @@ var hours = ["9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm"];
     			totalString += form.elements[i].id;
     		}
     	}
-    	alert(totalString);
 
     	$.post(
                 '/user/set',

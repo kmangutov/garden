@@ -1,0 +1,20 @@
+<div class="container">
+<h3>Users</h3>
+
+<table class="table">
+<tr>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Availability</th>
+</tr>
+
+<%	users.forEach(function(user) {	%>
+<tr>
+	<td><%= user.firstName + " " + user.lastName %></td>
+	<td><%= user.email %></td>
+	<td><%= user.availableTimes %></td>
+</td>
+<%	}) %>
+
+</table>
+</div>
