@@ -6,7 +6,7 @@
 
 <div class="container">
 <h1><%= user.firstName %> <%= user.lastName %></h1>
-<h3><%= user.email %> <%= user.availableTimes %></h3>
+<h3><%= user.email %></h3>
 
 <%
 var days = ["Thursday", "Friday", "Saturday", "Sunday"];
@@ -66,6 +66,7 @@ var hours = ["9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm"];
                 {id: <%=user.id%>, availableTimes: totalString},
                 function () {
                     //window.location = "/main/home";
+                    alert("Times submitted");
                 }
             ).fail(function(res){
                 alert("Error: " + res.getResponseHeader("error"));

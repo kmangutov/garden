@@ -33,7 +33,7 @@ module.exports = {
 				} else {
 					foundUser = usr;
 
-					if(usr.length > 0) {
+					if(usr.length > 0 && usr[0]["password"] == password) {
 						sails.log("within: found");
 						sails.log("user: " + JSON.stringify(usr));
 						req.session.user = usr;
@@ -48,9 +48,9 @@ module.exports = {
 					else {
 						sails.log("within: not found")
 
-							req.session.admin = false;
-							req.session.loggedIn = false;
-							req.session.email = "";
+						req.session.admin = false;
+						req.session.loggedIn = false;
+						req.session.email = "";
 
 						res.send(400, {error: "Account doesn't exist"});
 						//res.view("/main/login");
